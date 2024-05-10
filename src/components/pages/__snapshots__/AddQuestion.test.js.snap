@@ -1,0 +1,370 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Add Question renders AddQuestion component correctly 1`] = `
+<div>
+  <header
+    class="header"
+  >
+    <nav
+      class="nav"
+    >
+      <ul
+        class="nav-list"
+      >
+        <li
+          class="nav-item  active"
+        >
+          <a
+            class="nav-link"
+            href="/"
+          >
+            Home
+          </a>
+        </li>
+        <li
+          class="nav-item "
+        >
+          <a
+            class="nav-link"
+            href="/leaderboard"
+          >
+            Leaderboard
+          </a>
+        </li>
+        <li
+          class="nav-item "
+        >
+          <a
+            class="nav-link"
+            href="/add"
+          >
+            New
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <div
+      class="user-info"
+    >
+      <button
+        class="logout-btn"
+      >
+        Logout
+      </button>
+    </div>
+  </header>
+  <div
+    class="add-question-container"
+  >
+    <h2>
+      Would you rather
+    </h2>
+    <p>
+      Create your own Poll
+    </p>
+    <div
+      class="add-question-form"
+    >
+      <form>
+        <div
+          class="form-group"
+        >
+          <label
+            class="mb-1 label"
+            for="optionOne"
+          >
+            First Option
+          </label>
+          <input
+            class="form-control "
+            id="optionOne"
+            type="text"
+            value=""
+          />
+        </div>
+        <div
+          class="form-group"
+        >
+          <label
+            class="mb-1 label"
+            for="optionTwo"
+          >
+            Second Option
+          </label>
+          <input
+            class="form-control "
+            id="optionTwo"
+            type="text"
+            value=""
+          />
+        </div>
+        <div
+          class="center-div"
+        >
+          <button
+            class="btn btn-primary mt-2"
+            disabled=""
+            type="submit"
+          >
+            Create Question
+          </button>
+        </div>
+      </form>
+    </div>
+    <div
+      class="loading-container"
+      style="display: none;"
+    >
+      <div
+        class="loading"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders AddQuestion component correctly 1`] = `
+<div>
+  <header
+    class="header"
+  >
+    <nav
+      class="nav"
+    >
+      <ul
+        class="nav-list"
+      >
+        <li
+          class="nav-item  active"
+        >
+          <a
+            class="nav-link"
+            href="/"
+          >
+            Home
+          </a>
+        </li>
+        <li
+          class="nav-item "
+        >
+          <a
+            class="nav-link"
+            href="/leaderboard"
+          >
+            Leaderboard
+          </a>
+        </li>
+        <li
+          class="nav-item "
+        >
+          <a
+            class="nav-link"
+            href="/add"
+          >
+            New
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <div
+      class="user-info"
+    >
+      <button
+        class="logout-btn"
+      >
+        Logout
+      </button>
+    </div>
+  </header>
+  <div
+    class="add-question-container"
+  >
+    <h2>
+      Would you rather
+    </h2>
+    <p>
+      Create your own Poll
+    </p>
+    <div
+      class="add-question-form"
+    >
+      <form>
+        <div
+          class="form-group"
+        >
+          <label
+            class="mb-1 label"
+            for="optionOne"
+          >
+            First Option
+          </label>
+          <input
+            class="form-control "
+            id="optionOne"
+            type="text"
+            value=""
+          />
+        </div>
+        <div
+          class="form-group"
+        >
+          <label
+            class="mb-1 label"
+            for="optionTwo"
+          >
+            Second Option
+          </label>
+          <input
+            class="form-control "
+            id="optionTwo"
+            type="text"
+            value=""
+          />
+        </div>
+        <div
+          class="center-div"
+        >
+          <button
+            class="btn btn-primary mt-2"
+            disabled=""
+            type="submit"
+          >
+            Create Question
+          </button>
+        </div>
+      </form>
+    </div>
+    <div
+      class="loading-container"
+      style="display: none;"
+    >
+      <div
+        class="loading"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders Header component correctly 1`] = `
+<div>
+  <header
+    class="header"
+  >
+    <nav
+      class="nav"
+    >
+      <ul
+        class="nav-list"
+      >
+        <li
+          class="nav-item  active"
+        >
+          <a
+            class="nav-link"
+            href="/"
+          >
+            Home
+          </a>
+        </li>
+        <li
+          class="nav-item "
+        >
+          <a
+            class="nav-link"
+            href="/leaderboard"
+          >
+            Leaderboard
+          </a>
+        </li>
+        <li
+          class="nav-item "
+        >
+          <a
+            class="nav-link"
+            href="/add"
+          >
+            New
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <div
+      class="user-info"
+    >
+      <button
+        class="logout-btn"
+      >
+        Logout
+      </button>
+    </div>
+  </header>
+  <div
+    class="add-question-container"
+  >
+    <h2>
+      Would you rather
+    </h2>
+    <p>
+      Create your own Poll
+    </p>
+    <div
+      class="add-question-form"
+    >
+      <form>
+        <div
+          class="form-group"
+        >
+          <label
+            class="mb-1 label"
+            for="optionOne"
+          >
+            First Option
+          </label>
+          <input
+            class="form-control "
+            id="optionOne"
+            type="text"
+            value=""
+          />
+        </div>
+        <div
+          class="form-group"
+        >
+          <label
+            class="mb-1 label"
+            for="optionTwo"
+          >
+            Second Option
+          </label>
+          <input
+            class="form-control "
+            id="optionTwo"
+            type="text"
+            value=""
+          />
+        </div>
+        <div
+          class="center-div"
+        >
+          <button
+            class="btn btn-primary mt-2"
+            disabled=""
+            type="submit"
+          >
+            Create Question
+          </button>
+        </div>
+      </form>
+    </div>
+    <div
+      class="loading-container"
+      style="display: none;"
+    >
+      <div
+        class="loading"
+      />
+    </div>
+  </div>
+</div>
+`;
