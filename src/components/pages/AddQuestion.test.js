@@ -1,19 +1,17 @@
-import React from "react";
-import { render, fireEvent, screen } from "@testing-library/react";
-import "@testing-library/jest-dom/extend-expect"; // To extend Jest matchers
+import "@testing-library/jest-dom/extend-expect";
 
-import { Provider } from "react-redux";
+import { fireEvent, screen } from "@testing-library/react";
+import React from "react";
 import { MemoryRouter } from "react-router-dom";
-import store from "../../redux";
-import AddQuestion from "./AddQuestion"; // Assuming the file path to your component
+
+import { renderWithProviders } from "../../utils/testUtils";
+import AddQuestion from "./AddQuestion";
 
 describe("AddQuestion Component", () => {
   test("renders input fields and submit button", () => {
-    render(
+    renderWithProviders(
       <MemoryRouter>
-        <Provider store={store}>
-          <AddQuestion />
-        </Provider>
+        <AddQuestion />
       </MemoryRouter>
     );
 
@@ -27,13 +25,12 @@ describe("AddQuestion Component", () => {
   });
 
   test("submits form with valid inputs", async () => {
-    render(
+    renderWithProviders(
       <MemoryRouter>
-        <Provider store={store}>
-          <AddQuestion />
-        </Provider>
+        <AddQuestion />
       </MemoryRouter>
     );
+
     const firstOptionInput = screen.getByTestId("first-option");
     const secondOptionInput = screen.getByTestId("second-option");
     fireEvent.change(firstOptionInput, { target: { value: "Option 1" } });

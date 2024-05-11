@@ -1,21 +1,24 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk, AsyncThunkAction } from "@reduxjs/toolkit";
 import { _getUsers } from "../../utils/_DATA";
+import { AuthInitialState } from "../type";
 
 export const fetchUsers = createAsyncThunk(
   "authentication/fetchUsers",
   async () => {
     return await _getUsers();
   }
-);
+) ;
+
+const initialState: AuthInitialState = {
+  authedUser: null,
+  isLoading: false,
+  error: null,
+  users: [],
+}
 
 const authenticationSlice = createSlice({
   name: "authentication",
-  initialState: {
-    authedUser: null,
-    isLoading: false,
-    error: null,
-    users: [],
-  },
+  initialState,
   reducers: {
     setAuthedUser: (state, action) => {
       state.authedUser = action.payload;
@@ -63,7 +66,7 @@ const authenticationSlice = createSlice({
       })
       .addCase(fetchUsers.rejected, (state, action) => {
         state.isLoading = false;
-        state.error = action.error.message;
+        state.error = action.error.message ?? '';
       });
   },
 });

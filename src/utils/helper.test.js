@@ -1,27 +1,8 @@
 import {
-  formatTimestamp,
   sortUserToTotalAnsweredAndQuestions,
   formatAnsweredQuestion,
+  formatQuestionWithFullAuthorInfo,
 } from "./helper";
-
-describe("formatTimestamp", () => {
-  it("formats the timestamp correctly", () => {
-    const timestamp = 1672557000000; // Update timestamp as needed
-
-    const expected = "2:10 PM | 1/1/2023";
-
-    const result = formatTimestamp(timestamp);
-    expect(result).toBe(expected);
-  });
-  it("formats the timestamp correctly for AM time", () => {
-    const timestamp = 1672530900000; // Update timestamp as needed
-
-    const expected = "6:55 AM | 1/1/2023";
-
-    const result = formatTimestamp(timestamp);
-    expect(result).toBe(expected);
-  });
-});
 
 describe("sortUserToTotalAnsweredAndQuestions", () => {
   it("sorts users based on total answered and questions in ascending order", () => {
@@ -190,5 +171,37 @@ describe("formatAnsweredQuestion", () => {
       optionOneSelected: false,
       optionTwoSelected: false,
     });
+  });
+});
+
+describe("formatQuestionWithFullAuthorInfo", () => {
+  const question = {
+    id: "1",
+    text: "Sample question text",
+    author: "user1",
+  };
+
+  const users = [
+    { id: "user1", name: "John Doe" },
+    { id: "user2", name: "Jane Smith" },
+  ];
+
+  it("should return formatted question with full author info", () => {
+    const formattedQuestion = formatQuestionWithFullAuthorInfo(question, users);
+
+    expect(formattedQuestion).toEqual({
+      id: "1",
+      text: "Sample question text",
+      author: { id: "user1", name: "John Doe" },
+    });
+  });
+
+  it("should return null if user with author id is not found", () => {
+    const formattedQuestion = formatQuestionWithFullAuthorInfo(
+      { ...question, author: "unknownUser" },
+      null
+    );
+
+    expect(formattedQuestion.author).toBeNull();
   });
 });

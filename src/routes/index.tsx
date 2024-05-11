@@ -45,6 +45,14 @@ const router = [
     element: <Login />,
   },
   {
+    path: PATH.NOT_FOUND,
+    element: (
+      <ProtectedRoute>
+        <NotFound />
+      </ProtectedRoute>
+    ),
+  },
+  {
     path: "*",
     element: (
       <ProtectedRoute>

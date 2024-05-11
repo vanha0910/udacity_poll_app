@@ -1,11 +1,13 @@
-export const formatQuestionWithFullAuthorInfo = (question, users) => {
+import {  User, QuestionWithAuthor } from "../redux/type";
+
+export const formatQuestionWithFullAuthorInfo = (question: any, users: User[]) => {
   return {
     ...question,
-    author: users ? users.find((user) => user.id === question.author) : null,
+    author:  users?.find((user) => user.id === question.author) ?? null,
   };
 };
 
-export const sortUserToTotalAnsweredAndQuestions = (users) => {
+export const sortUserToTotalAnsweredAndQuestions = (users:  User[]) => {
   return [...users].sort((a, b) => {
     const totalA = Object.keys(a.answers).length + a.questions.length;
     const totalB = Object.keys(b.answers).length + b.questions.length;
@@ -13,7 +15,7 @@ export const sortUserToTotalAnsweredAndQuestions = (users) => {
   });
 };
 
-export const formatAnsweredQuestion = (question, user) => {
+export const formatAnsweredQuestion = (question: QuestionWithAuthor, user: string) => {
   const optionOneSelected =
     question.optionOne && question.optionOne.votes.includes(user);
   const optionTwoSelected =
@@ -53,7 +55,7 @@ export const formatAnsweredQuestion = (question, user) => {
   };
 };
 
-export const formatTimestamp = (timestamp) => {
+export const formatTimestamp = (timestamp: number) => {
   const date = new Date(timestamp);
 
   const hours = date.getHours();

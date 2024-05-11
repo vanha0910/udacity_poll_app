@@ -5,10 +5,11 @@ import { sortUserToTotalAnsweredAndQuestions } from '../../utils/helper';
 import Header from '../common/Header';
 import Loader from '../common/Loader';
 import Error from "../common/Error";
+import { RootState } from "../../redux/store";
 
 
 const LeaderBoard = () => {
-  const { users, isLoading, error } = useSelector((state) => state.authentication);
+  const { users, isLoading, error } = useSelector((state: RootState) => state.authentication);
 
   const sortedUsers = sortUserToTotalAnsweredAndQuestions(users)
 

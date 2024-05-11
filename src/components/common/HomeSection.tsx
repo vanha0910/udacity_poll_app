@@ -1,7 +1,13 @@
 import React from "react";
 import QuestionCard from "./QuestionCard";
+import { QuestionWithAuthor } from "../../redux/type";
 
-const HomeSection = ({ data, title }) => {
+interface HomeSectionProps {
+  data: QuestionWithAuthor[];
+  title: string;
+}
+
+const HomeSection = ({ data, title }: HomeSectionProps) => {
   return (
     <div className="section">
       <div className="section-header">{title}</div>

@@ -9,27 +9,28 @@ import Button from "../common/Button";
 import Loader from "../common/Loader";
 import Header from "../common/Header";
 import { PATH } from "../../constansts";
+import { RootState } from "../../redux/store";
 
 const AddQuestion = () => {
   const [optionOne, setOptionOne] = useState("");
   const [optionTwo, setOptionTwo] = useState("");
   const [hasSubmit, setSubmit] = useState(false)
 
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<any>();
   const navigate = useNavigate();
 
-  const {  isLoading,  isCreatedSuccess,  addedQuestion} = useSelector((state) => state.questions);
-  const { authedUser } = useSelector((state) => state.authentication);
+  const {  isLoading,  isCreatedSuccess,  addedQuestion} = useSelector((state: RootState) => state.questions);
+  const { authedUser } = useSelector((state: RootState) => state.authentication);
 
-  const handleOptionOneChange = (e) => {
+  const handleOptionOneChange = (e: any) => {
     setOptionOne(e.target.value);
   };
 
-  const handleOptionTwoChange = (e) => {
+  const handleOptionTwoChange = (e: any) => {
     setOptionTwo(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit =  (e: any)=> {
     setSubmit(true)
     e.preventDefault();   
 
@@ -49,7 +50,7 @@ const AddQuestion = () => {
   }, [isCreatedSuccess, addedQuestion])
 
   useEffect(() => {
-    return () => dispatch(resetState())
+    return () => dispatch(resetState({}))
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 

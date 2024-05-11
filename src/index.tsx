@@ -5,10 +5,14 @@ import store from "./redux";
 import App from "./App";
 import Loader from "./components/common/Loader";
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
+
+const root = ReactDOM.createRoot(
+  document.getElementById('root') as HTMLElement,
+);
+
 root.render(
   <React.StrictMode>
-    <Suspense fallback={<Loader show />}>
+    <Suspense fallback={<Loader open />}>
       <Provider store={store}>
         <App />
       </Provider>

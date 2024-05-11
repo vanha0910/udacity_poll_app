@@ -1,5 +1,65 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Header Component matches snapshot 1`] = `
+<div>
+  <header
+    class="header"
+  >
+    <nav
+      class="nav"
+    >
+      <ul
+        class="nav-list"
+      >
+        <li
+          class="nav-item  active"
+        >
+          <a
+            class="nav-link"
+            data-testid="nav-1"
+            href="/"
+          >
+            Home
+          </a>
+        </li>
+        <li
+          class="nav-item "
+        >
+          <a
+            class="nav-link"
+            data-testid="nav-2"
+            href="/leaderboard"
+          >
+            Leaderboard
+          </a>
+        </li>
+        <li
+          class="nav-item "
+        >
+          <a
+            class="nav-link"
+            data-testid="nav-3"
+            href="/add"
+          >
+            New
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <div
+      class="user-info"
+    >
+      <button
+        class="logout-btn"
+        data-testid="logout-btn"
+      >
+        Logout
+      </button>
+    </div>
+  </header>
+</div>
+`;
+
 exports[`renders Header component correctly 1`] = `
 <div>
   <header

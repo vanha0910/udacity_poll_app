@@ -1,13 +1,13 @@
-import React from "react";
 import { renderWithProviders } from "../../utils/testUtils";
-import Header from "./Header";
+import React from "react";
 import { MemoryRouter } from "react-router-dom";
+import HomeSection from "./HomeSection";
 
-describe("Header Component", () => {
+describe("HomeSection Component", () => {
   it("matches snapshot", () => {
     const { container } = renderWithProviders(
       <MemoryRouter>
-        <Header />
+        <HomeSection />
       </MemoryRouter>
     );
 

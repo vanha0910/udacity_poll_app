@@ -7,7 +7,7 @@ import {
 } from "../../redux/question/questionsSlice";
 import { setUsers } from "../../redux/auth/authenticationSlice";
 
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 import Loader from "../common/Loader";
 import Header from "../common/Header";
@@ -15,31 +15,31 @@ import {
   formatQuestionWithFullAuthorInfo,
   formatAnsweredQuestion,
 } from "../../utils/helper";
-import { OPTION_ONE, OPTION_TWO, PATH } from "../../constansts";
+import { OPTION_ONE, OPTION_TWO } from "../../constansts";
 import Error from "../common/Error";
 import OptionDetails from "../common/OptionDetails";
+import { RootState } from "../../redux/store";
 
 const QuestionDetails = () => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<any>();
   const params = useParams();
-  const navigate = useNavigate();
 
   const { questions, isLoading, error, isAnsweredSuccess } = useSelector(
-    (state) => state.questions
+    (state: RootState) => state.questions
   );
 
-  const { users, authedUser } = useSelector((state) => state.authentication);
+  const { users, authedUser } = useSelector((state: RootState) => state.authentication);
 
-  const [selectedOption, setOption] = useState(null);
+  const [selectedOption, setOption] = useState<string | null>(null);
   const question =
     params && questions && questions.find((it) => it.id === params.question_id);
 
   const questionDetails = formatAnsweredQuestion(
     formatQuestionWithFullAuthorInfo(question, users),
-    authedUser && authedUser.id
+     authedUser?.id ?? ''
   );
 
-  const handleAnswer = (option) => {
+  const handleAnswer = (option: string) => {
     setOption(option);
     dispatch(
       answerQuestion({
@@ -68,13 +68,13 @@ const QuestionDetails = () => {
           answer: selectedOption,
         })
       );
-      navigate(PATH.HOME);
+      // navigate(PATH.HOME);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isAnsweredSuccess, selectedOption]);
 
   useEffect(() => {
-    return () => dispatch(resetState());
+    return () => dispatch(resetState({}));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (

@@ -6,6 +6,7 @@ import {
   _saveQuestionAnswer,
 } from "../../utils/_DATA";
 import { OPTION_ONE, OPTION_TWO } from "../../constansts";
+import { QuestionInitialState } from "../type";
 
 export const fetchQuestions = createAsyncThunk(
   "questions/fetchQuestions",
@@ -16,28 +17,30 @@ export const fetchQuestions = createAsyncThunk(
 
 export const saveQuestion = createAsyncThunk(
   "questions/saveQuestion",
-  async (question) => {
+  async (question: any) => {
     return await _saveQuestion(question);
   }
 );
 
 export const answerQuestion = createAsyncThunk(
   "questions/answerQuestion",
-  async (answer) => {
+  async (answer: any) => {
     return await _saveQuestionAnswer(answer);
   }
 );
 
+const initialState: QuestionInitialState = {
+  questions: [],
+  addedQuestion: null,
+  isLoading: false,
+  isCreatedSuccess: false,
+  isAnsweredSuccess: false,
+  error: null,
+};
+
 const questionsSlice = createSlice({
   name: "questions",
-  initialState: {
-    questions: [],
-    addedQuestion: null,
-    isLoading: false,
-    isCreatedSuccess: false,
-    isAnsweredSuccess: false,
-    error: null,
-  },
+  initialState,
   reducers: {
     setAnswer: (state, action) => {
       const index = state.questions.findIndex(
@@ -84,7 +87,7 @@ const questionsSlice = createSlice({
       })
       .addCase(fetchQuestions.rejected, (state, action) => {
         state.isLoading = false;
-        state.error = action.error.message;
+        state.error = action.error.message ?? "";
       })
       .addCase(saveQuestion.pending, (state) => {
         state.isLoading = true;
@@ -99,7 +102,7 @@ const questionsSlice = createSlice({
       })
       .addCase(saveQuestion.rejected, (state, action) => {
         state.isLoading = false;
-        state.error = action.error.message;
+        state.error = action.error.message ?? "";
         state.isCreatedSuccess = false;
       })
       .addCase(answerQuestion.pending, (state) => {
@@ -113,13 +116,12 @@ const questionsSlice = createSlice({
       })
       .addCase(answerQuestion.rejected, (state, action) => {
         state.isLoading = false;
-        state.error = action.error.message;
+        state.error = action.error.message ?? "";
         state.isAnsweredSuccess = false;
       });
   },
 });
 
-export const { addQuestion, updateQuestion, resetState, setAnswer } =
-  questionsSlice.actions;
+export const { resetState, setAnswer } = questionsSlice.actions;
 
 export default questionsSlice.reducer;

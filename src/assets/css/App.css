@@ -463,3 +463,24 @@ body {
   top: 0;
   max-width: 50px;
 }
+
+/** Toggle */
+.toggle-container {
+  display: flex;
+  gap: 15px;
+  max-width: 300px;
+  margin: 15px auto;
+}
+
+.toggle-item {
+  padding: 16px;
+  text-align: center;
+  color: #000;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.toggle-item.active {
+  color: #fff;
+  background:#007bff;
+}
