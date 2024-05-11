@@ -1,4 +1,4 @@
-import { createSlice, createAsyncThunk, AsyncThunkAction } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { _getUsers } from "../../utils/_DATA";
 import { AuthInitialState } from "../type";
 
